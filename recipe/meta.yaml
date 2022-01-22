@@ -11,7 +11,7 @@ source:
   sha256: 66c3719a7ad6bbcc4110de6ef2ee124ca7320d8db12388b31b6eec35d0dcba42
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -57,3 +57,5 @@ about:
 extra:
   recipe-maintainers:
     - sugatoray
+    # Maintainer(s) from stripnet repo
+    - stephenleo
