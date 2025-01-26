@@ -7,20 +7,20 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/stripnet-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/stripnet-{{ version }}.tar.gz
   sha256: 40abb57cc734361d8e3c9178b844b7549f5ea829ea02b2353c7bc82025994bf2
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python >=3.6,<3.9
+    - python {{ python_min }}
   run:
-    - python >=3.6,<3.9
+    - python >={{ python_min }},<3.9
     - bertopic >=0.9.4
     - ipywidgets >=7.6.5
     - networkx >=2.6.3
@@ -38,6 +38,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/stephenleo/stripnet
